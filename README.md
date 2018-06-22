@@ -12,7 +12,7 @@ I recommend using the latest available version of PHP as a matter of principle.
 Start a new Artefakt Pattern Library by running this on a command prompt (requires [Composer](http://getcomposer.org/) to be available as `composer`):
 
 ```bash
-composer create-project apparat/artefakt <project-name>
+composer create-project --prefer-dist apparat/artefakt <project-name>
 cd <project-name>
 ```
 
