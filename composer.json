@@ -43,14 +43,10 @@
   ],
   "require": {
     "php": ">=7.2",
-    "apparat/artefakt-core": "dev-master",
-    "symfony/console": "^4.1"
+    "apparat/artefakt-core": "dev-master"
   },
   "require-dev": {
-    "clue/graph-composer": "dev-master",
-    "php-coveralls/php-coveralls": "^2.1",
-    "phpunit/phpunit": "^7.2",
-    "squizlabs/php_codesniffer": "^3.3"
+    "clue/graph-composer": "dev-master"
   },
   "scripts": {
     "post-root-package-install": [
@@ -59,10 +55,6 @@
     "post-create-project-cmd": [
       "vendor/bin/artefakt init"
     ],
-    "phpunit": "vendor/bin/phpunit --configuration phpunit.xml.dist",
-    "depgraph": "vendor/bin/graph-composer --no-dev export . doc/dependencies.svg",
-    "check-style": "vendor/bin/phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src",
-    "fix-style": "vendor/bin/phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src",
-    "test": "@phpunit"
+    "depgraph": "vendor/bin/graph-composer --no-dev export . doc/dependencies.svg"
   }
 }

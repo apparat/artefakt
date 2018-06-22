@@ -18,6 +18,10 @@ cd <project-name>
 
 Please make sure to replace `<project-name>` with the path and name of your project.
 
+## Dependencies
+
+![Composer dependency graph](https://rawgit.com/apparat/artefakt/master/doc/dependencies.svg)
+
 ## Quality
 
 The Artefakt set of libraries attempt to comply with [PSR-1][], [PSR-2][], and [PSR-4][]. If you notice compliance oversights, please send a patch for the respective library via pull request.
