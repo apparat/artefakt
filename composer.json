@@ -1,0 +1,42 @@
+{
+  "name": "apparat/artefakt",
+  "description": "Artefakt Pattern Library Tool Base Distribution",
+  "homepage": "https://apparat.tools/artefakt",
+  "type": "metapackage",
+  "minimum-stability": "RC",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Joschi Kuphal",
+      "email": "joschi@kuphal.net",
+      "homepage": "https://jkphl.is",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "joschi@kuphal.net",
+    "source": "https://github.com/apparat/artefakt",
+    "issues": "https://github.com/apparat/artefakt/issues"
+  },
+  "config": {
+    "sort-packages": true,
+    "platform": {
+      "php": "7.2"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://composer.typo3.org/"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:apparat/artefakt-core.git",
+      "reference": "master"
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "apparat/artefakt-core": "dev-master"
+  }
+}
