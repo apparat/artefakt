@@ -17,11 +17,20 @@
     "issues": "https://github.com/apparat/artefakt/issues"
   },
   "config": {
+    "preferred-install": "dist",
     "sort-packages": true,
+    "optimize-autoloader": true,
     "platform": {
       "php": "7.2"
     }
   },
+  "autoload": {
+    "psr-4": {
+      "Artefakt\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "repositories": [
     {
       "type": "composer",
@@ -31,10 +40,34 @@
       "type": "vcs",
       "url": "git@github.com:apparat/artefakt-core.git",
       "reference": "master"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/jkphl/graph-composer"
     }
   ],
   "require": {
     "php": ">=7.2",
-    "apparat/artefakt-core": "dev-master"
+    "apparat/artefakt-core": "dev-master",
+    "symfony/console": "^4.1"
+  },
+  "require-dev": {
+    "clue/graph-composer": "dev-master",
+    "php-coveralls/php-coveralls": "^2.1",
+    "phpunit/phpunit": "^7.2",
+    "squizlabs/php_codesniffer": "^3.3"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "@php artefakt init"
+    ],
+    "phpunit": "vendor/bin/phpunit --configuration phpunit.xml.dist",
+    "depgraph": "vendor/bin/graph-composer --no-dev export . doc/dependencies.svg",
+    "check-style": "vendor/bin/phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src",
+    "fix-style": "vendor/bin/phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src",
+    "test": "@phpunit"
   }
 }
