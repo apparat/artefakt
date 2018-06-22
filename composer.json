@@ -2,8 +2,6 @@
   "name": "apparat/artefakt",
   "description": "Artefakt Pattern Library Tool Base Distribution",
   "homepage": "https://apparat.tools/artefakt",
-  "type": "metapackage",
-  "minimum-stability": "RC",
   "license": "MIT",
   "authors": [
     {
