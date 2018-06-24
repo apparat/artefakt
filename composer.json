@@ -53,7 +53,7 @@
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ],
     "post-create-project-cmd": [
-      "Artefakt\\Core\\Infrastructure\\Composer::postCreateProjectCmd",
+      "Artefakt\\Core\\Infrastructure\\Facade\\Composer::postCreateProjectCmd",
       "vendor/bin/artefakt app:discover"
     ],
     "depgraph": "vendor/bin/graph-composer --no-dev export . doc/dependencies.svg"
