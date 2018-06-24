@@ -16,7 +16,37 @@ composer create-project --prefer-dist apparat/artefakt <project-name>
 cd <project-name>
 ```
 
-Please make sure to replace `<project-name>` with the path and name of your project.
+Please make sure to replace `<project-name>` with the path and name of your project. If you need more control over the directories used by Artefakt, you can also create a custom `composer.json` in your installation directory:
+
+```
+mkdir <project-name>
+cd <project-name>
+composer init
+```
+
+Edit your `composer.json` to specify custom data directories, e.g.:
+
+```json
+{
+    "name": "your/project",
+    "require": {
+        "apparat/artefakt": "dev-master"
+    },
+    "extra": {
+        "apparat/artefakt": {
+            "components": "cpms", // Component data directory
+            "documents": "docs", // Document data directory
+            "cache": "/tmp/artefakt" // Cache directory
+        }
+    }
+}
+```
+
+Relative directory paths are resolved against the installation directory (the directory where the `composer.json` resides). Finally, install Artefakt with:
+
+```
+composer install
+```
 
 ## Dependencies
 

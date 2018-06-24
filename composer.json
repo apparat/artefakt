@@ -56,11 +56,10 @@
       "Artefakt\\Core\\Infrastructure\\Composer::postCreateProjectCmd",
       "vendor/bin/artefakt app:discover"
     ],
+    "post-package-install": [
+      "@post-root-package-install",
+      "@post-create-project-cmd"
+    ],
     "depgraph": "vendor/bin/graph-composer --no-dev export . doc/dependencies.svg"
-  },
-  "extra": {
-    "apparat/artefakt": {
-      "cache": "var"
-    }
   }
 }
