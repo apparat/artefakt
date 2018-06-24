@@ -1,63 +1,66 @@
 {
-    "name": "apparat/artefakt",
-    "description": "Artefakt Pattern Library Tool Base Distribution",
-    "homepage": "https://apparat.tools/artefakt",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Joschi Kuphal",
-            "email": "joschi@kuphal.net",
-            "homepage": "https://jkphl.is",
-            "role": "Developer"
-        }
-    ],
-    "support": {
-        "email": "joschi@kuphal.net",
-        "source": "https://github.com/apparat/artefakt",
-        "issues": "https://github.com/apparat/artefakt/issues"
-    },
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true,
-        "optimize-autoloader": true,
-        "platform": {
-            "php": "7.2"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://composer.typo3.org/"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:apparat/artefakt-core.git",
-            "reference": "master"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/jkphl/graph-composer"
-        }
-    ],
-    "require": {
-        "php": ">=7.2",
-        "apparat/artefakt-core": "dev-master"
-    },
-    "require-dev": {
-        "clue/graph-composer": "dev-master"
-    },
-    "scripts": {
-        "post-create-project-cmd": [
-            "Artefakt\\Core\\Infrastructure\\Composer::postCreateProjectCmd",
-            "vendor/bin/artefakt app:discover"
-        ],
-        "depgraph": "vendor/bin/graph-composer --no-dev export . doc/dependencies.svg"
-    },
-    "extra": {
-        "apparat/artefakt": {
-            "cache": "var"
-        }
+  "name": "apparat/artefakt",
+  "description": "Artefakt Pattern Library Tool Base Distribution",
+  "homepage": "https://apparat.tools/artefakt",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Joschi Kuphal",
+      "email": "joschi@kuphal.net",
+      "homepage": "https://jkphl.is",
+      "role": "Developer"
     }
+  ],
+  "support": {
+    "email": "joschi@kuphal.net",
+    "source": "https://github.com/apparat/artefakt",
+    "issues": "https://github.com/apparat/artefakt/issues"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.2"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://composer.typo3.org/"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:apparat/artefakt-core.git",
+      "reference": "master"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/jkphl/graph-composer"
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "apparat/artefakt-core": "dev-master"
+  },
+  "require-dev": {
+    "clue/graph-composer": "dev-master"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "Artefakt\\Core\\Infrastructure\\Composer::postCreateProjectCmd",
+      "vendor/bin/artefakt app:discover"
+    ],
+    "depgraph": "vendor/bin/graph-composer --no-dev export . doc/dependencies.svg"
+  },
+  "extra": {
+    "apparat/artefakt": {
+      "cache": "var"
+    }
+  }
 }
